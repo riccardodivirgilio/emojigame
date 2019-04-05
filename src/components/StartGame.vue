@@ -1,19 +1,30 @@
 <template>
-  <div class="hello">
-    <form action="/aaa">
-      <input v-model='solution'/>
-      <input v-model='answer'/>
-      <router-link :to="url">Go</router-link>
-      <br/>
-      <ul class="proposals">
-        <li v-for="answer, solution in proposals">
-          <router-link :to="get_url(solution, answer)">
-            {{ solution }} {{ answer }}
-          </router-link>
-        </li>
-      </ul>
-    </form>
-  </div>
+  <form>
+    <div class="field">
+      <label class="label">Solution</label>
+      <div class="control">
+        <input ref="solution" class="input" type="text" placeholder="Insert solution" v-model='solution'>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Answer</label>
+      <div class="control">
+        <input ref="answer" class="input is-success" type="text" placeholder="Insert answer" v-model='answer'>
+      </div>
+    </div>
+    <br/>
+    <div class="control has-text-centered">
+      <router-link class="button is-primary is-fullwidth is-medium" :to="url">Go</router-link>
+    </div>
+    <br/>
+    <ul class="proposals">
+      <li v-for="answer, solution in proposals">
+        <router-link :to="get_url(solution, answer)">
+          {{ solution }} {{ answer }}
+        </router-link>
+      </li>
+    </ul>
+  </form>
 </template>
 
 <script>
@@ -43,15 +54,16 @@ export default {
     url: function() {
       return this.get_url(this.solution, this.answer)
     }
+  },
+  mounted(){
+    this.$refs.solution.focus();
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -60,7 +72,9 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
+
+form {
+
 }
+
 </style>

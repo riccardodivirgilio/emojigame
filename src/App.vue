@@ -1,23 +1,35 @@
 <template>
-  <div id="app">
-    <router-link to="/"><a href=""><img src="./assets/logo.png"></a></router-link>
-    <router-view/>
-  </div>
+  <section class="section">
+    <div class="container">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column is-half">
+          <div class="emojigame box">
+            <div class="logo has-text-centered">
+              <router-link to="/">The Emoji Game</a></router-link>
+            </div>
+            <router-view/>
+          </div>
+        </div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </section>
+
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'EmojiGame'
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .emojigame {
+  }
+  .logo a {
+    color: black;
+    font-size:45px;
+  }
 </style>
