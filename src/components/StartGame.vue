@@ -1,9 +1,17 @@
 <template>
   <div class="hello">
-    <h1>{{ solution }}</h1>
     <form action="/aaa">
+      <input v-model='solution'/>
       <input v-model='answer'/>
       <router-link :to="url">Go</router-link>
+      <br/>
+      <ul class="proposals">
+        <li v-for="answer, solution in proposals">
+          <router-link :to="get_url(solution, answer)">
+            {{ solution }} {{ answer }}
+          </router-link>
+        </li>
+      </ul>
     </form>
   </div>
 </template>
@@ -17,12 +25,23 @@ export default {
   data () {
     return {
       solution: 'stokazzo',
-      answer: '😂😭'
+      answer: '😂😭',
+      proposals: {
+        'pompiere':   '😅🤩',
+        'salvini':    '🤡',
+        'di maio':    '🤟🏼',
+        'cicciolina': '😂😭',
+      }
+    }
+  },
+  methods: {
+    get_url: function(solution, answer) {
+      return '/' + dumps({'a': answer, 's': solution})
     }
   },
   computed: {
     url: function() {
-      return '/' + dumps({'a': this.answer, 's': this.solution})
+      return this.get_url(this.solution, this.answer)
     }
   }
 }
