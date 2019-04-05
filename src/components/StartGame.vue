@@ -9,7 +9,7 @@
     <div class="field">
       <label class="label">Answer</label>
       <div class="control">
-        <input ref="answer" class="input is-success" type="text" placeholder="Insert answer" v-model='answer'>
+        <input ref="answer" class="input" :class="{'is-danger': error}" type="text" placeholder="Insert answer" v-model='answer' @keyup="on_answer_input">
       </div>
     </div>
     <br/>
@@ -30,11 +30,15 @@
 <script>
 
 import {dumps} from '../utils/encode'
+import emojiRegex from 'emoji-regex'
+
+const regex = emojiRegex();
 
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      stokazzo: 2,
       solution: 'stokazzo',
       answer: '😂😭',
       proposals: {
@@ -48,15 +52,24 @@ export default {
   methods: {
     get_url: function(solution, answer) {
       return '/' + dumps({'a': answer, 's': solution})
+    },
+    on_answer_input: function() {
+      this.answer = this.filtered
     }
   },
   computed: {
     url: function() {
       return this.get_url(this.solution, this.answer)
+    },
+    filtered: function() {
+      return  this.answer.replace(/[\u2190-\u21FF]|[\u2600-\u26FF]|[\u2700-\u27BF]|[\u3000-\u303F]|[\u1F300-\u1F64F]|[\u1F680-\u1F6FF]/g, "").trim();
+    },
+    error: function() {
+      return this.filtered !== this.answer
     }
   },
   mounted(){
-    this.$refs.solution.focus();
+    this.$refs.answer.focus();
   }
 }
 </script>
