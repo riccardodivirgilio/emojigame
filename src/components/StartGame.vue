@@ -85,7 +85,7 @@ export default {
     },
     absolute_url: function() {
       const url = document.createElement('a')
-      url.setAttribute('href', this.url)
+      url.setAttribute('href', '#' + this.url)
       return url.href
     },
     filtered: function() {
