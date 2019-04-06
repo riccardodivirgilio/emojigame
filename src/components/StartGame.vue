@@ -9,7 +9,7 @@
       </div>
       <div class="control">
         <div class="field has-addons">
-          <div class="control">
+          <div class="control is-expanded">
             <input ref="solution" class="input has-text-centered" type="text" placeholder="Psyco" v-model='solution'>
           </div>
           <div class="control">
