@@ -15,8 +15,10 @@
   },
   "dependencies": {
     "copy-to-clipboard": "^3.1.0",
+    "emoji-name-map": "^1.2.8",
     "js-base64": "^2.5.1",
     "jwt-decode": "^2.2.0",
+    "lunr": "^2.3.6",
     "rfuncs": "^1.2.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
