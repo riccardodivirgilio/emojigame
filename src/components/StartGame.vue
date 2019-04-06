@@ -32,7 +32,7 @@
             <input ref="url" class="input is-small has-text-grey is-family-monospace" type="text" :value='absolute_url' :disabled='invalid_url' readonly>
           </div>
           <div class="control">
-            <button class="button is-small" @click='on_copy_click' :disabled='invalid_url'>
+            <button class="button is-small" @click.prevent='on_copy_click' :disabled='invalid_url'>
               COPY
             </button>
           </div>
