@@ -10,7 +10,7 @@
       <div class="control">
         <div class="field has-addons">
           <div class="control">
-            <input ref="solution" class="input has-text-centered" type="text" placeholder="Insert solution" v-model='solution'>
+            <input ref="solution" class="input has-text-centered" type="text" placeholder="Psyco" v-model='solution'>
           </div>
           <div class="control">
             <button class="button is-static">
@@ -18,7 +18,7 @@
             </button>
           </div>
           <div class="control">
-            <input ref="answer" class="input has-text-centered" :class="{'is-danger': invalid_input}" type="text" placeholder="Insert answer" v-model='answer' @keyup="on_answer_input">
+            <input ref="answer" class="input has-text-centered" :class="{'is-danger': invalid_input}" type="text" placeholder="🔪🚿😱" v-model='answer' @keyup="on_answer_input">
           </div>
         </div>
       </div>
@@ -44,7 +44,6 @@
       <button v-if='invalid_url' class="button is-fullwidth is-medium" :to="url" disabled>Go</button>
       <router-link v-else class="button is-primary is-fullwidth is-medium" :to="url">Go</router-link>
     </div>
-
   </form>
 </template>
 
@@ -57,15 +56,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      stokazzo: 2,
-      solution: 'Hotel California',
-      answer: '😂😭',
-      proposals: {
-        'pompiere':   '😅🤩',
-        'IT':    '🤡',
-        'di maio':    '🤟🏼',
-        'cicciolina': '😂😭',
-      }
+      solution: '',
+      answer: '',
     }
   },
   methods: {
@@ -99,7 +91,7 @@ export default {
     }
   },
   mounted(){
-    this.$refs.answer.focus();
+    this.$refs.solution.focus();
   }
 }
 </script>
