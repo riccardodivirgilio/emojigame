@@ -2,7 +2,6 @@
   <form>
     <br/>
     <div class="field">
-
       <div class="columns is-gapless is-mobile" style="margin-bottom: 7px">
         <div class="column"><label class="label">Pick the word</label></div>
         <div class="column has-text-right"><label class="label">Pick the emoji</label></div>
@@ -18,11 +17,16 @@
             </button>
           </div>
           <div class="control">
-            <input ref="answer" class="input has-text-centered" :class="{'is-danger': invalid_input}" type="text" :placeholder="! this.solution ? '🔪🚿😱' : ''" v-model='answer' @keyup="on_answer_input">
+            <input ref="answer" class="input has-text-centered" :class="{'is-danger': invalid_input}" type="text" v-model='answer' @keyup="on_answer_input">
           </div>
         </div>
       </div>
     </div>
+
+      <span v-if='is_emoji_visible(emoji)' v-for='emoji, name in emoji'>
+        {{ emoji }}
+      </span>
+
     <br/>
     <div class="field">
       <label class="label">Share the URL!</label>
@@ -49,8 +53,12 @@
 
 <script>
 
-import {answer_url} from '../utils/urls'
-import copy         from 'copy-to-clipboard'
+import {answer_url}   from '../utils/urls'
+import emoji          from '../utils/emoji'
+import copy           from 'copy-to-clipboard'
+import map            from 'rfuncs/functions/map'
+import length         from 'rfuncs/functions/length'
+import values         from 'rfuncs/functions/values'
 
 export default {
   name: 'HelloWorld',
@@ -58,6 +66,7 @@ export default {
     return {
       solution: '',
       answer: '',
+      emoji: emoji.emoji
     }
   },
   methods: {
@@ -66,6 +75,9 @@ export default {
     },
     on_copy_click: function() {
       copy(this.absolute_url);
+    },
+    is_emoji_visible: function(emoji) {
+      return this.search_results[emoji]
     }
   },
   computed: {
@@ -85,6 +97,12 @@ export default {
     },
     invalid_url: function() {
       return ! this.answer || ! this.solution
+    },
+    search_results: function() {
+      return emoji.search(this.solution)
+    },
+    suggestion: function() {
+      return map(d => d.emoji, values(this.search_results)).join('')
     }
   },
   mounted(){
