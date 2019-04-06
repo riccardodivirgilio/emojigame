@@ -11,7 +11,7 @@
       </div>
     </section>
     <div class="control">
-      <input class="input" ref='solution' :class="{'is-success': correct}" type="text" placeholder="Insert solution" v-model='proposed'>
+      <input class="input has-text-centered" ref='solution' :class="{'is-success': correct}" type="text" placeholder="Insert solution" v-model='proposed'>
     </div>
     <br/>
     <section class="hero has-text-centered" :class="{'is-success': correct}">

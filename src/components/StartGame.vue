@@ -7,13 +7,10 @@
         <div class="column"><label class="label">Pick the word</label></div>
         <div class="column has-text-right"><label class="label">Pick the emoji</label></div>
       </div>
-
-      
-      
       <div class="control">
         <div class="field has-addons">
-          <div class="control is-expanded">
-            <input ref="solution" class="input" type="text" placeholder="Insert solution" v-model='solution'>
+          <div class="control">
+            <input ref="solution" class="input has-text-centered" type="text" placeholder="Insert solution" v-model='solution'>
           </div>
           <div class="control">
             <button class="button is-static">
@@ -21,7 +18,7 @@
             </button>
           </div>
           <div class="control">
-            <input ref="answer" class="input" :class="{'is-danger': invalid_input}" type="text" placeholder="Insert answer" v-model='answer' @keyup="on_answer_input">
+            <input ref="answer" class="input has-text-centered" :class="{'is-danger': invalid_input}" type="text" placeholder="Insert answer" v-model='answer' @keyup="on_answer_input">
           </div>
         </div>
       </div>
