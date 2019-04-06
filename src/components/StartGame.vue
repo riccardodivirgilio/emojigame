@@ -16,7 +16,7 @@
             <input ref="solution" class="input" type="text" placeholder="Insert solution" v-model='solution'>
           </div>
           <div class="control">
-            <button class="button" disabled>
+            <button class="button is-static">
               &rarr;
             </button>
           </div>
