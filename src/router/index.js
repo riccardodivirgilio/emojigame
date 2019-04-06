@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import StartGame from '@/components/StartGame'
 import Answer from '@/components/Answer'
+import {loads}  from '../utils/base64'
 
 Vue.use(Router)
 
@@ -14,13 +15,15 @@ export default new Router({
       component: StartGame
     },
     { 
-      path: '/:answer/:encoded_solution', 
+      path: '/:answer/:solution', 
       name: 'Answer',
       component: Answer,
       props: route => ({
         answer: route.params.answer, 
-        encoded_solution: route.params.encoded_solution
+        solution: loads(route.params.solution)
       }),
     }
   ]
 })
+
+

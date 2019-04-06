@@ -28,7 +28,6 @@
 
 <script>
 
-import {loads}  from '../utils/base64'
 import group_by from 'rfuncs/functions/group_by'
 import values   from 'rfuncs/functions/values'
 import first    from 'rfuncs/functions/first'
@@ -47,7 +46,7 @@ function zip() {
 }
 
 export default {
-  props: ['answer', 'encoded_solution'],
+  props: ['answer', 'solution'],
   data () {
     return {
       proposed: '',
@@ -56,9 +55,6 @@ export default {
   computed: {
     correct: function() {
       return this.proposed.toLowerCase() == this.solution.toLowerCase()
-    },
-    solution: function() {
-      return loads(this.encoded_solution)
     },
     score_unordered_result: function() {
       //counting number of characters
