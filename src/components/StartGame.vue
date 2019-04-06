@@ -18,7 +18,7 @@
             </button>
           </div>
           <div class="control">
-            <input ref="answer" class="input has-text-centered" :class="{'is-danger': invalid_input}" type="text" placeholder="🔪🚿😱" v-model='answer' @keyup="on_answer_input">
+            <input ref="answer" class="input has-text-centered" :class="{'is-danger': invalid_input}" type="text" :placeholder="! this.solution ? '🔪🚿😱' : ''" v-model='answer' @keyup="on_answer_input">
           </div>
         </div>
       </div>
