@@ -5,11 +5,20 @@
       <div class="columns">
         <div class="column"></div>
         <div class="column is-half">
-          <div class="emojigame box">
-            <div class="logo has-text-centered">
-              <router-link to="/">The Emoji Game</a></router-link>
+
+
+          <div class="card">
+            <header class="card-header">
+              <router-link to="/" class="card-header-title" style="text-align: center; display: block; font-size: 35px">The Emoji Game</a></router-link>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+                <br/>
+                <router-view/>
+              </div>
             </div>
-            <router-view/>
           </div>
         </div>
         <div class="column"></div>
