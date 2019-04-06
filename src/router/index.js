@@ -13,9 +13,13 @@ export default new Router({
       component: StartGame
     },
     { 
-      path: '/:dump', 
+      path: '/:answer/:encoded_solution', 
       name: 'Answer',
-      component: Answer 
+      component: Answer,
+      props: route => ({
+        answer: route.params.answer, 
+        encoded_solution: route.params.encoded_solution
+      }),
     }
   ]
 })

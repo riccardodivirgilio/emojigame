@@ -27,10 +27,10 @@
 
 <script>
 
-import {loads} from '../utils/encode'
+import {loads} from '../utils/base64'
 
 export default {
-  name: 'HelloWorld',
+  props: ['answer', 'encoded_solution'],
   data () {
     return {
       proposed: '',
@@ -40,14 +40,8 @@ export default {
     correct: function() {
       return this.proposed.toLowerCase() == this.solution.toLowerCase()
     },
-    decoded: function() {
-      return loads(this.$route.params.dump)
-    },
-    answer: function() {
-      return this.decoded.a
-    },
     solution: function() {
-      return this.decoded.s
+      return loads(this.encoded_solution)
     },
   },
   mounted(){

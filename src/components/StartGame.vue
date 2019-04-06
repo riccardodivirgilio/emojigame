@@ -49,8 +49,8 @@
 
 <script>
 
-import {dumps} from '../utils/encode'
-import copy from 'copy-to-clipboard'
+import {answer_url} from '../utils/urls'
+import copy         from 'copy-to-clipboard'
 
 export default {
   name: 'HelloWorld',
@@ -61,9 +61,6 @@ export default {
     }
   },
   methods: {
-    get_url: function(solution, answer) {
-      return '/' + dumps({'a': answer, 's': solution})
-    },
     on_answer_input: function() {
       this.answer = this.filtered
     },
@@ -73,12 +70,12 @@ export default {
   },
   computed: {
     url: function() {
-      return this.get_url(this.solution, this.answer)
+      return answer_url(this.solution, this.answer)
     },
     absolute_url: function() {
       const url = document.createElement('a')
-      url.setAttribute('href', '#' + this.url)
-      return url.href
+      url.setAttribute('href', '/')
+      return url.href + '#' + this.url
     },
     filtered: function() {
       return  this.answer.replace(/[\u2190-\u21FF]|[\u2600-\u26FF]|[\u2700-\u27BF]|[\u3000-\u303F]|[\u1F300-\u1F64F]|[\u1F680-\u1F6FF]/g, "").trim();
