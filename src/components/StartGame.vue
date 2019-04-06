@@ -32,10 +32,10 @@
       <div class="control">
         <div class="field has-addons">
           <div class="control is-expanded">
-            <input ref="url" class="input" type="text" :value='absolute_url' :disabled='invalid_url'>
+            <input ref="url" class="input is-small has-text-grey is-family-monospace" type="text" :value='absolute_url' :disabled='invalid_url' readonly>
           </div>
           <div class="control">
-            <button class="button is-info" @click='on_copy_click' :disabled='invalid_url'>
+            <button class="button is-small" @click='on_copy_click' :disabled='invalid_url'>
               COPY
             </button>
           </div>
@@ -47,14 +47,7 @@
       <button v-if='invalid_url' class="button is-fullwidth is-medium" :to="url" disabled>Go</button>
       <router-link v-else class="button is-primary is-fullwidth is-medium" :to="url">Go</router-link>
     </div>
-    <br/>
-    <ul class="proposals">
-      <li v-for="answer, solution in proposals">
-        <router-link :to="get_url(solution, answer)">
-          {{ solution }} {{ answer }}
-        </router-link>
-      </li>
-    </ul>
+
   </form>
 </template>
 
