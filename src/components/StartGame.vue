@@ -75,7 +75,7 @@ export default {
     absolute_url: function() {
       const url = document.createElement('a')
       url.setAttribute('href', '/')
-      return url.href + '#' + this.url
+      return url.href.slice(0, -1) + this.url
     },
     filtered: function() {
       return  this.answer.replace(/[\u2190-\u21FF]|[\u2600-\u26FF]|[\u2700-\u27BF]|[\u3000-\u303F]|[\u1F300-\u1F64F]|[\u1F680-\u1F6FF]/g, "").trim();
