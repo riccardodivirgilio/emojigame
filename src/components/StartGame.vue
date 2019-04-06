@@ -2,28 +2,40 @@
   <form>
     <br/>
     <div class="field">
-      <label class="label">Solution</label>
+
+      <div class="columns is-gapless is-mobile" style="margin-bottom: 7px">
+        <div class="column"><label class="label">Pick the word</label></div>
+        <div class="column has-text-right"><label class="label">Pick the emoji</label></div>
+      </div>
+
+      
+      
       <div class="control">
-        <input ref="solution" class="input" type="text" placeholder="Insert solution" v-model='solution'>
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input ref="solution" class="input" type="text" placeholder="Insert solution" v-model='solution'>
+          </div>
+          <div class="control">
+            <button class="button" disabled>
+              &rarr;
+            </button>
+          </div>
+          <div class="control">
+            <input ref="answer" class="input" :class="{'is-danger': invalid_input}" type="text" placeholder="Insert answer" v-model='answer' @keyup="on_answer_input">
+          </div>
+        </div>
       </div>
     </div>
     <br/>
-    <div class="field">
-      <label class="label">Answer</label>
-      <div class="control">
-        <input ref="answer" class="input" :class="{'is-danger': error}" type="text" placeholder="Insert answer" v-model='answer' @keyup="on_answer_input">
-      </div>
-    </div>
-
     <div class="field">
       <label class="label">Share the URL!</label>
       <div class="control">
         <div class="field has-addons">
           <div class="control is-expanded">
-            <input ref="url" class="input" type="text" :value='absolute_url'>
+            <input ref="url" class="input" type="text" :value='absolute_url' :disabled='invalid_url'>
           </div>
           <div class="control">
-            <button class="button is-info" @click='on_copy_click'>
+            <button class="button is-info" @click='on_copy_click' :disabled='invalid_url'>
               COPY
             </button>
           </div>
@@ -32,7 +44,8 @@
     </div>
     <br/>
     <div class="control has-text-centered">
-      <router-link class="button is-primary is-fullwidth is-medium" :to="url">Go</router-link>
+      <button v-if='invalid_url' class="button is-fullwidth is-medium" :to="url" disabled>Go</button>
+      <router-link v-else class="button is-primary is-fullwidth is-medium" :to="url">Go</router-link>
     </div>
     <br/>
     <ul class="proposals">
@@ -88,8 +101,11 @@ export default {
     filtered: function() {
       return  this.answer.replace(/[\u2190-\u21FF]|[\u2600-\u26FF]|[\u2700-\u27BF]|[\u3000-\u303F]|[\u1F300-\u1F64F]|[\u1F680-\u1F6FF]/g, "").trim();
     },
-    error: function() {
+    invalid_input: function() {
       return this.filtered !== this.answer
+    },
+    invalid_url: function() {
+      return ! this.answer || ! this.solution
     }
   },
   mounted(){
