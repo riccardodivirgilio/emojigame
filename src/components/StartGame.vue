@@ -78,7 +78,7 @@ export default {
       return url.href.slice(0, -1) + this.url
     },
     filtered: function() {
-      return  this.answer.replace(/[\u2190-\u21FF]|[\u2600-\u26FF]|[\u2700-\u27BF]|[\u3000-\u303F]|[\u1F300-\u1F64F]|[\u1F680-\u1F6FF]/g, "").trim();
+      return  this.answer.replace(/^[\u0020-\u007e\u00a0-\u00ff]*$/g, "").trim();
     },
     invalid_input: function() {
       return this.filtered !== this.answer
