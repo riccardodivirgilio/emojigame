@@ -16,7 +16,7 @@
           <small>
               Made with ❤️ in 🇮🇹
               by <a href='https://github.com/riccardodivirgilio' target='_blank'>@riccardodivirgilio</a>
-              and <a href='https://github.com/andreacat' target='_blank'>@pinoli</a>.
+              and <a href='https://github.com/andreacat' target='_blank'>@andreacat</a>.
           <br/>
           Follow on <a href='https://github.com/riccardodivirgilio/emojigame' target='_blank'>Github</a>.
           </small>
