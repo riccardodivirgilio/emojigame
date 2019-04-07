@@ -8,14 +8,7 @@
             <header class="card-header">
               <router-link to="/" class="card-header-title" style="text-align: center; display: block; font-size: 35px">The Emoji Game</a></router-link>
             </header>
-            <div class="card-content">
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                <br/>
-                <router-view/>
-              </div>
-            </div>
+            <router-view/>
           </div>
           <footer class="has-text-grey has-text-centered">
             <br/>

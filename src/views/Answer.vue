@@ -1,34 +1,42 @@
 <template>
   <form @submit.prevent>
-    <section class="hero has-text-centered">
-      <div class="hero-body">
-        <h1 class="title">
-          {{ answer }}
-        </h1>
-        <h2 class="subtitle">
-          Guess the answer.
-        </h2>
-        <progress class="progress" :value="score" max="1" :class="score_classes"></progress>
+    <div class="card-content">
+      <section class="hero has-text-centered">
+        <div class="hero-body">
+          <h1 class="title">
+            {{ answer }}
+          </h1>
+          <h2 class="subtitle">
+            Guess the answer.
+          </h2>
+          <progress class="progress" :value="score" max="1" :class="score_classes"></progress>
+        </div>
+      </section>
+      <div class="control">
+        <input class="input has-text-centered" ref='solution' :class="{'is-success': correct}" type="text" placeholder="Insert solution" v-model='proposed'>
       </div>
-    </section>
-    <div class="control">
-      <input class="input has-text-centered" ref='solution' :class="{'is-success': correct}" type="text" placeholder="Insert solution" v-model='proposed'>
+      <br/>
+      <section class="hero has-text-centered" :class="{'is-success': correct}">
+        <div class="hero-body">
+          <h1 class="title title-correct" style="font-size:80px">
+            <template v-if='correct'>👍</template>
+            <template v-else>
+              <template v-for='w in solution_words'>- </template>?
+            </template>
+          </h1>
+      </div>
+      </section>
+
+      <Share :url='url'/>
     </div>
-    <br/>
-    <section class="hero has-text-centered" :class="{'is-success': correct}">
-      <div class="hero-body">
-        <h1 class="title title-correct" style="font-size:80px">
-          <template v-if='correct'>👍</template>
-          <template v-else>
-            <template v-for='w in solution_words'>- </template>?
-          </template>
-        </h1>
-    </div>
-    </section>
+    <Controls></Controls>
   </form>
 </template>
 
 <script>
+
+import Share    from '@/components/Share'
+import Controls from '@/components/Controls'
 
 import first    from 'rfuncs/functions/first'
 import group_by from 'rfuncs/functions/group_by'
@@ -38,10 +46,12 @@ import map      from 'rfuncs/functions/map'
 import values   from 'rfuncs/functions/values'
 import zip      from 'rfuncs/functions/zip'
 
+import {answer_url}         from '@/utils/urls'
 import {normalize_solution} from '@/utils/text'
 import total                from '@/utils/total'
 
 export default {
+  components: {Share, Controls},
   props: ['answer', 'solution'],
   data () {
     return {
@@ -49,6 +59,9 @@ export default {
     }
   },
   computed: {
+    url: function() {
+      return answer_url(this.solution, this.answer)
+    },
     correct: function() {
       return this.score == 1
     },

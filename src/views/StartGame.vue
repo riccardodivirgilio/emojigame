@@ -1,68 +1,66 @@
 <template>
   <form @submit.prevent='on_form_submit'>
-    <br/>
-    <div class="field">
-      <div class="columns is-gapless is-mobile" style="margin-bottom: 7px">
-        <div class="column"><label class="label">Pick the word</label></div>
-        <div class="column has-text-right"><label class="label">Pick the emoji</label></div>
-      </div>
-      <div class="control">
-        <div class="field has-addons">
-          <div class="control is-expanded">
-            <input ref="solution" class="input has-text-centered" type="text" :placeholder="solution_suggestion" v-model='solution'>
-          </div>
-          <div class="control">
-            <button class="button is-static">
-              &rarr;
-            </button>
-          </div>
-          <div class="control">
-            <input ref="answer" class="input has-text-centered" :placeholder="is_searching ? '' : answer_suggestion" :class="{'is-danger': invalid_input}" type="text" v-model='answer' @blur="on_answer_blur" @focus='is_searching = true'>
+    <div class='card-content'>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+      <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a></p>
+      <br/>
+      <div class="field">
+        <div class="columns is-gapless is-mobile" style="margin-bottom: 7px">
+          <div class="column"><label class="label">Pick the word</label></div>
+          <div class="column has-text-right"><label class="label">Pick the emoji</label></div>
+        </div>
+        <div class="control">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input ref="solution" class="input has-text-centered" type="text" :placeholder="solution_suggestion" v-model='solution'>
+            </div>
+            <div class="control">
+              <button class="button is-static">
+                &rarr;
+              </button>
+            </div>
+            <div class="control">
+              <input ref="answer" class="input has-text-centered" :placeholder="is_searching ? '' : answer_suggestion" :class="{'is-danger': invalid_input}" type="text" v-model='answer' @blur="on_answer_blur" @focus='is_searching = true'>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="emoji-controls">
-      <div class="buttons has-addons is-fullwidth is-centered">
-        <a class="button is-small is-radiusless" :title='name' v-show='is_emoji_visible(emoji)' v-for='emoji, name in emojis' @click.prevent='on_click_emoji(emoji)'>
-          <span class="icon is-small">{{ emoji }}</span>
-        </a>
-      </div>
-    </div>
-    <br/>
-    <div class="field">
-      <label class="label">Share the URL!</label>
-      <div class="control">
-        <div class="field has-addons">
-          <div class="control is-expanded">
-            <input ref="url" class="input is-small has-text-grey is-family-monospace" type="text" :value='absolute_url' :disabled='invalid_url' readonly>
-          </div>
-          <div class="control">
-            <button class="button is-small" @click.prevent='on_copy_click' :disabled='invalid_url'>
-              COPY
-            </button>
-          </div>
+      <div class="emoji-controls">
+        <div class="buttons has-addons is-fullwidth is-centered">
+          <a class="button is-small is-radiusless" :title='name' v-show='is_emoji_visible(emoji)' v-for='emoji, name in emojis' @click.prevent='on_click_emoji(emoji)'>
+            <span class="icon is-small">{{ emoji }}</span>
+          </a>
         </div>
       </div>
+      <br/>
+      <Share :url='url'/>
     </div>
+    <Controls>
+      <router-link :to='url' class="card-footer-item has-background-primary has-text-white">
+        Go &rarr;
+      </router-link>
+    </Controls>
   </form>
 </template>
 
 <script>
 
+import Share           from '@/components/Share'
+import Controls        from '@/components/Controls'
+
 import {remove_text, remove_emoji, normalize_solution} from '../utils/text'
 import {answer_url}    from '@/utils/urls'
 import emoji           from '@/utils/emoji'
 
-import copy            from 'copy-to-clipboard'
 import map             from 'rfuncs/functions/map'
 import length          from 'rfuncs/functions/length'
 import values          from 'rfuncs/functions/values'
 import first           from 'rfuncs/functions/first'
 import filter          from 'rfuncs/functions/filter'
 
+
 export default {
-  name: 'HelloWorld',
+  components: {Share, Controls},
   data () {
     return {
       solution: '',
@@ -82,9 +80,6 @@ export default {
     on_form_submit: function () {
       this.$router.push(this.url)
     },
-    on_copy_click: function() {
-      copy(this.absolute_url);
-    },
     on_click_emoji: function(emoji) {
       this.answer = this.filtered + emoji
     },
@@ -102,22 +97,12 @@ export default {
         this.answer   || this.answer_suggestion,
       )
     },
-    absolute_url: function() {
-      const url = document.createElement('a')
-      url.setAttribute('href', '/')
-      return url.href.slice(0, -1) + this.url
-    },
-
     filtered: function() {
       return remove_text(this.answer)
     },
     invalid_input: function() {
       return this.filtered !== this.answer
     },
-    invalid_url: function() {
-      return false
-    },
-
     emoji_query: function() {
       return emoji.search(remove_emoji(this.answer))
     },
