@@ -2,19 +2,20 @@
 export const examples = {
     '12 angry men': '😠😠😠😠😠😠😠😠😠😠😠😠',
     '12 monkeys': '🐵🐵🐵🐵🐵🐵🐵🐵🐵🐵🐵🐵',
-    'hotline miami': '🔥➖🌴',
-    'planet of the apes': '🌎🐵',
-    'the silence of the lambs': '🤫🐑',
-    'interview with the vampire': '🎤🧛‍♀️',
-    'the dark side of the moon': '🌑',
-    'psyco': '🔪🚿',
-    'twin peaks': '🗻🗻',
-    'scream': '😱🔪',
-    'game of thrones': '♟🥶🐉',
-    'brexit': '🇬🇧🚪👋',
-    'a clockwork orange': '⏰🍊',
-    'flat earth': '➖🌎',
-    'guns and roses': '🔫🌹'
+    'Hotline Miami': '🔥➖🌴',
+    'Planet of the apes': '🌎🐵',
+    'The silence of the lambs': '🤫🐑',
+    'Interview with the vampire': '🎤🧛‍♀️',
+    'The dark side of the moon': '🌑',
+    'Psyco': '🔪🚿',
+    'Twin peaks': '🗻🗻',
+    'Scream': '😱🔪',
+    'Game of thrones': '♟🥶🐉',
+    'Brexit': '🇬🇧🚪👋',
+    'A clockwork orange': '⏰🍊',
+    'Flat earth': '➖🌎',
+    'Guns and Roses': '🔫🌹',
+    'Fear and Loathing in Las Vegas': '😱🤪🌴🎰'
 }
 
 export default examples
