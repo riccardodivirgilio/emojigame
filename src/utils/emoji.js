@@ -7,9 +7,10 @@ import group_by    from 'rfuncs/functions/group_by'
 import first       from 'rfuncs/functions/first'
 
 const patches = {
-    'us': ['america', 'usa', 'donald', 'trump', 'maga'],
-    'it': ['italy', 'italia'],
-    'jp': ['japan'],
+    'us':   ['america', 'usa', 'donald', 'trump', 'maga'],
+    'it':   ['italy', 'italia'],
+    'jp':   ['japan'],
+    'poop': ['shit', 'poo', 'crap'],
 }
 
 const idx = lunr(function () {
