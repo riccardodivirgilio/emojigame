@@ -10,6 +10,8 @@ export const examples = {
     '🔪🚿': 'psyco',
     '🗻🗻': 'twin peaks',
     '😱🔪': 'scream',
+    '♟🥶🐉': 'game of thrones',
+    '🔫🌹': 'guns and roses',
 }
 
 export default examples
