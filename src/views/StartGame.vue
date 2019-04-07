@@ -2,16 +2,17 @@
   <form @submit.prevent='on_form_submit'>
     <div class='card-content'>
       <p>Make your friends guess what's behind the emojis!</p>
-      <ul>
-        <li>Pick something to guess.</li>
-        <li>Choose the emojis that best describe it.</li>
-        <li>Share the link and make your friends go crazy!</li>
-      </ul>
-      <br/>
+      <div class="content is-small">
+        <ol>
+          <li>Pick something to guess.</li>
+          <li>Choose the emojis that best describe it.</li>
+          <li>Share the link and make your friends go crazy!</li>
+        </ol>
+      </div>
       <div class="field">
         <div class="columns is-gapless is-mobile" style="margin-bottom: 7px">
-          <div class="column"><label class="label">Pick the word</label></div>
-          <div class="column has-text-right"><label class="label">Pick the emoji</label></div>
+          <div class="column"><label class="label">1. Pick the word</label></div>
+          <div class="column has-text-right"><label class="label">2. Pick the emoji</label></div>
         </div>
         <div class="control">
           <div class="field has-addons">
@@ -37,7 +38,7 @@
         </div>
       </div>
       <br/>
-      <Share :url='url'/>
+      <Share :url='url' label='3. Share the link!'/>
     </div>
     <Controls>
       <router-link :to='url' class="card-footer-item has-background-primary has-text-white">

@@ -1,6 +1,6 @@
 <template>
   <div class="field">
-    <label class="label">Share the URL!</label>
+    <label class="label" v-html="label || 'Share the link!'"/>
     <div class="control">
       <div class="field has-addons">
         <div class="control is-expanded">
@@ -21,7 +21,7 @@
 import copy from 'copy-to-clipboard'
 
 export default {
-  props: ['url'],
+  props: ['url', 'label'],
   methods: {
     on_copy_click: function() {
       copy(this.absolute_url);
