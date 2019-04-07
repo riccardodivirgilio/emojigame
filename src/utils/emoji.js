@@ -8,7 +8,7 @@ import first     from 'rfuncs/functions/first'
 
 const patches = {
     'it': ['italy', 'italia'],
-    'jp': ['japan']
+    'jp': ['japan'],
 }
 
 const idx = lunr(function () {
