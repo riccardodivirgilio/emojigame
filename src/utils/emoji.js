@@ -1,10 +1,10 @@
 
-import emojis  from 'emoji-name-map'
-import lunr    from 'lunr'
-import scan    from 'rfuncs/functions/scan'
-import object_map     from 'rfuncs/functions/object_map'
-import group_by     from 'rfuncs/functions/group_by'
-import first     from 'rfuncs/functions/first'
+import emojis      from 'emoji-name-map'
+import lunr        from 'lunr'
+import scan        from 'rfuncs/functions/scan'
+import object_map  from 'rfuncs/functions/object_map'
+import group_by    from 'rfuncs/functions/group_by'
+import first       from 'rfuncs/functions/first'
 
 const patches = {
     'us': ['america', 'usa', 'donald', 'trump', 'maga'],
