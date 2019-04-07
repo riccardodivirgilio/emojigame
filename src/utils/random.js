@@ -15,4 +15,4 @@ function choice(array) {
     return a[integer(1, length(a)) - 1]
 }
 
-export default {integer, choice}
+export default {integer, choice, real}
