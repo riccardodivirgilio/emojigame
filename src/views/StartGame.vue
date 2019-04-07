@@ -51,13 +51,13 @@ import Controls        from '@/components/Controls'
 import {remove_text, remove_emoji, normalize_solution} from '../utils/text'
 import {answer_url}    from '@/utils/urls'
 import emoji           from '@/utils/emoji'
+import random          from '@/utils/random'
 
 import map             from 'rfuncs/functions/map'
 import length          from 'rfuncs/functions/length'
 import values          from 'rfuncs/functions/values'
 import first           from 'rfuncs/functions/first'
 import filter          from 'rfuncs/functions/filter'
-
 
 export default {
   components: {Share, Controls},
@@ -111,7 +111,10 @@ export default {
     },
 
     solution_suggestion: function() {
-      return 'cow boy'
+      return random.choice([
+        'guns & roses', 
+        'cow boy',
+        ])
     },
     answer_suggestion: function() {
 
