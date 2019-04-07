@@ -136,9 +136,9 @@ export default {
 
     }
   },
-  mounted(){
-    this.$refs.solution.focus();
-  }
+  //mounted(){
+  //  this.$refs.solution.focus();
+  //}
 }
 </script>
 
