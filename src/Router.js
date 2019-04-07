@@ -22,7 +22,8 @@ export default new Router({
       component: Answer,
       props: route => ({
         answer: remove_text(route.params.answer), 
-        solution: normalize_solution(loads(route.params.solution))
+        solution: normalize_solution(loads(route.params.solution)),
+        proposed: '',
       }),
     }
   ]

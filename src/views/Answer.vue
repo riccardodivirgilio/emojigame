@@ -52,12 +52,7 @@ import total                from '@/utils/total'
 
 export default {
   components: {Share, Controls},
-  props: ['answer', 'solution'],
-  data () {
-    return {
-      proposed: '',
-    }
-  },
+  props: ['answer', 'solution', 'proposed'],
   computed: {
     url: function() {
       return answer_url(this.solution, this.answer)
