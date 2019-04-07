@@ -6,15 +6,30 @@ import object_map     from 'rfuncs/functions/object_map'
 import group_by     from 'rfuncs/functions/group_by'
 import first     from 'rfuncs/functions/first'
 
+const patches = {
+    'it': ['italy', 'italia'],
+    'jp': ['japan']
+}
+
 const idx = lunr(function () {
   this.ref('id')
   this.field('name')
+
+  //loading all emojis
   scan(
     (emoji, name) => this.add({
         'id':   name,
         'name': name.replace('_', ' ')
     }),
     emojis.emoji
+  )
+  //adding patches
+  scan(
+    (spellings, id) => scan(
+        spelling => this.add({'id': id, 'name': spelling}),
+        spellings
+    ),
+    patches
   )
 })
 
