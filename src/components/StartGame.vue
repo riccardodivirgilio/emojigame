@@ -127,7 +127,7 @@ export default {
     },
 
     solution_suggestion: function() {
-      return 'apple'
+      return 'cow boy'
     },
     answer_suggestion: function() {
 
