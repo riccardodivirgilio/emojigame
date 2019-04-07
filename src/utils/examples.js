@@ -12,6 +12,7 @@ export const examples = {
     '😱🔪': 'scream',
     '♟🥶🐉': 'game of thrones',
     '🔫🌹': 'guns and roses',
+    '🇬🇧🚪👋': 'brexit',
 }
 
 export default examples
