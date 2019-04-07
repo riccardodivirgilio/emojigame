@@ -14,6 +14,7 @@
     "build": "node build/build.js && rm -rf docs && mv dist docs && cp docs/index.html docs/404.html"
   },
   "dependencies": {
+    "bulma": "^0.7.4",
     "copy-to-clipboard": "^3.1.0",
     "emoji-name-map": "^1.2.8",
     "js-base64": "^2.5.1",
