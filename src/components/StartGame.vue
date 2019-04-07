@@ -23,8 +23,8 @@
       </div>
     </div>
     <div class="emoji-controls">
-      <div class="buttons">
-        <a class="button is-small" :title='name' v-show='is_emoji_visible(emoji)' v-for='emoji, name in emojis' @click.prevent='on_click_emoji(emoji)'>
+      <div class="buttons has-addons is-fullwidth is-centered">
+        <a class="button is-small is-radiusless" :title='name' v-show='is_emoji_visible(emoji)' v-for='emoji, name in emojis' @click.prevent='on_click_emoji(emoji)'>
           <span class="icon is-small">{{ emoji }}</span>
         </a>
       </div>
@@ -164,8 +164,9 @@ form {
 }
 
 .emoji-controls {
-  max-height: 138px;
+  height: 138px;
   overflow-y: scroll;
 }
+
 
 </style>
