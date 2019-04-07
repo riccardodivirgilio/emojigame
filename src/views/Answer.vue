@@ -38,8 +38,8 @@ import map      from 'rfuncs/functions/map'
 import values   from 'rfuncs/functions/values'
 import zip      from 'rfuncs/functions/zip'
 
-import {normalize_solution} from '../utils/text'
-import total from '../utils/total'
+import {normalize_solution} from '@/utils/text'
+import total                from '@/utils/total'
 
 export default {
   props: ['answer', 'solution'],

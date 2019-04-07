@@ -45,19 +45,14 @@
         </div>
       </div>
     </div>
-    <br/>
-    <div class="control has-text-centered">
-      <button v-if='invalid_url' class="button is-fullwidth is-medium" :to="url" disabled>Go</button>
-      <router-link v-else class="button is-primary is-fullwidth is-medium" :to="url">Go</router-link>
-    </div>
   </form>
 </template>
 
 <script>
 
 import {remove_text, remove_emoji, normalize_solution} from '../utils/text'
-import {answer_url}    from '../utils/urls'
-import emoji           from '../utils/emoji'
+import {answer_url}    from '@/utils/urls'
+import emoji           from '@/utils/emoji'
 
 import copy            from 'copy-to-clipboard'
 import map             from 'rfuncs/functions/map'

@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import StartGame from '@/components/StartGame'
-import Answer from '@/components/Answer'
-import {loads}  from '../utils/encode'
+import Vue       from 'vue'
+import Router    from 'vue-router'
+import StartGame from '@/views/StartGame'
+import Answer    from '@/views/Answer'
+import {loads}   from '@/utils/encode'
 
-import {remove_text, normalize_solution} from '../utils/text'
+import {remove_text, normalize_solution} from '@/utils/text'
 
 Vue.use(Router)
 
@@ -27,5 +27,3 @@ export default new Router({
     }
   ]
 })
-
-
