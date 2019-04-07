@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent='on_form_submit'>
     <br/>
     <div class="field">
       <div class="columns is-gapless is-mobile" style="margin-bottom: 7px">
@@ -83,6 +83,9 @@ export default {
         () => this.answer = this.filtered,
         125
       )
+    },
+    on_form_submit: function () {
+      this.$router.push(this.url)
     },
     on_copy_click: function() {
       copy(this.absolute_url);

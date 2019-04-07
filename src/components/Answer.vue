@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent>
     <section class="hero has-text-centered">
       <div class="hero-body">
         <h1 class="title">
