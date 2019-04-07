@@ -136,7 +136,7 @@ export default {
 
       if (! query) {return ''}
 
-      return map(d => d.emoji, filter(a => a, map(w => first(emoji.search(w)), words))).join('')
+      return map(d => d.emoji, filter(a => a, map(w => first(emoji.search(w + '* ' + w)), words))).join('')
 
     }
   },
