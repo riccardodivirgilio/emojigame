@@ -18,8 +18,10 @@
     <section class="hero has-text-centered" :class="{'is-success': correct}">
       <div class="hero-body">
         <h1 class="title title-correct" style="font-size:80px">
-          <span v-if='correct'>👍</span>
-          <span v-else>?</span>
+          <template v-if='correct'>👍</template>
+          <template v-else>
+            <template v-for='w in solution_words'>- </template>?
+          </template>
         </h1>
     </div>
     </section>
@@ -49,6 +51,9 @@ export default {
   computed: {
     correct: function() {
       return this.score == 1
+    },
+    solution_words: function() {
+      return normalize_solution(this.solution).split(' ')
     },
     solution_array: function() {
       return normalize_solution(this.solution).split('')
