@@ -17,7 +17,7 @@
             </button>
           </div>
           <div class="control">
-            <input ref="answer" class="input has-text-centered" :placeholder="answer_suggestion" :class="{'is-danger': invalid_input}" type="text" v-model='answer' @blur="on_answer_blur">
+            <input ref="answer" class="input has-text-centered" :placeholder="is_searching ? '' : answer_suggestion" :class="{'is-danger': invalid_input}" type="text" v-model='answer' @blur="on_answer_blur" @focus='is_searching = true'>
           </div>
         </div>
       </div>
@@ -78,6 +78,7 @@ export default {
   },
   methods: {
     on_answer_blur: function() {
+      this.is_searching = false
       setTimeout(
         () => this.answer = this.filtered,
         125
