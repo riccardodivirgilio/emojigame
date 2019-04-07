@@ -12,7 +12,8 @@ export const examples = {
     '😱🔪':   'scream',
     '♟🥶🐉': 'game of thrones',
     '🇬🇧🚪👋': 'brexit',
-    '⏰🍊':   'a clockwork orange'
+    '⏰🍊':   'a clockwork orange',
+    '➖🌎':   'flat earth',
 }
 
 export default examples
