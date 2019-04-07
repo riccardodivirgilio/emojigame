@@ -10,6 +10,10 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    // page scroll to top for all route navigations
+    return { x: 0, y: 0 }
+  },
   routes: [
     {
       path: '/',
