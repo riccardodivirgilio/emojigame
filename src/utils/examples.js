@@ -7,7 +7,7 @@ export const examples = {
     'The silence of the lambs': '🤫🐑',
     'Interview with the vampire': '🎤🧛‍♀️',
     'The dark side of the moon': '🌑',
-    'Psyco': '🔪🚿',
+    'Psycho': '🔪🚿',
     'Twin peaks': '🗻🗻',
     'Scream': '😱🔪',
     'Game of thrones': '♟🥶🐉',
