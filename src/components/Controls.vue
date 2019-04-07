@@ -16,7 +16,7 @@ import {answer_url} from '@/utils/urls'
 
 function new_random_url() {
     const choice = random.choice(keys(examples))
-    return answer_url(examples[choice], choice)
+    return answer_url(choice, examples[choice])
 }
 
 export default {
