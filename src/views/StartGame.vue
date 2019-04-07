@@ -56,11 +56,13 @@ import {remove_text, remove_emoji, normalize_solution} from '../utils/text'
 import {answer_url}    from '@/utils/urls'
 import emoji           from '@/utils/emoji'
 import random          from '@/utils/random'
+import examples        from '@/utils/examples'
 
 import map             from 'rfuncs/functions/map'
 import length          from 'rfuncs/functions/length'
 import values          from 'rfuncs/functions/values'
 import first           from 'rfuncs/functions/first'
+import keys            from 'rfuncs/functions/keys'
 import filter          from 'rfuncs/functions/filter'
 
 export default {
@@ -115,14 +117,15 @@ export default {
     },
 
     solution_suggestion: function() {
-      return random.choice([
-        'guns & roses', 
-        'cow boy',
-        ])
+      return random.choice(keys(examples))
     },
     answer_suggestion: function() {
 
-      const query  = normalize_solution(this.solution || this.solution_suggestion)
+      if (! this.solution) {
+        return examples[this.solution_suggestion]
+      }
+
+      const query  = normalize_solution(this.solution)
       const words  = query.split(' ')
 
       if (! query) {return ''}

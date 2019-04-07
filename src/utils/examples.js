@@ -14,6 +14,7 @@ export const examples = {
     'brexit': '🇬🇧🚪👋',
     'a clockwork orange': '⏰🍊',
     'flat earth': '➖🌎',
+    'guns and roses': '🔫🌹'
 }
 
 export default examples
