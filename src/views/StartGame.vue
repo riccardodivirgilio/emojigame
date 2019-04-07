@@ -1,8 +1,12 @@
 <template>
   <form @submit.prevent='on_form_submit'>
     <div class='card-content'>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-      <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a></p>
+      <p>Make your friends guess what's behind the emojis!</p>
+      <ul>
+        <li>Pick something to guess.</li>
+        <li>Choose the emojis that best describe it.</li>
+        <li>Share the link and make your friends go crazy!</li>
+      </ul>
       <br/>
       <div class="field">
         <div class="columns is-gapless is-mobile" style="margin-bottom: 7px">
