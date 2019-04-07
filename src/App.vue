@@ -1,6 +1,6 @@
 <template>
   <div class="app container">
-    <div class="columns">
+    <div class="columns is-gapless">
       <div class="column"></div>
       <div class="column is-half">
         <br class='is-hidden-mobile'/>
