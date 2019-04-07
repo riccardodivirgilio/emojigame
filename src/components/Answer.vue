@@ -28,22 +28,16 @@
 
 <script>
 
-import group_by from 'rfuncs/functions/group_by'
-import values   from 'rfuncs/functions/values'
 import first    from 'rfuncs/functions/first'
+import group_by from 'rfuncs/functions/group_by'
 import last     from 'rfuncs/functions/last'
+import length   from 'rfuncs/functions/length'
 import map      from 'rfuncs/functions/map'
+import values   from 'rfuncs/functions/values'
+import zip      from 'rfuncs/functions/zip'
 
-function zip() {
-    var args = [].slice.call(arguments);
-    var shortest = args.length==0 ? [] : args.reduce(function(a,b){
-        return a.length<b.length ? a : b
-    });
-
-    return shortest.map(function(_,i){
-        return args.map(function(array){return array[i]})
-    });
-}
+import {normalize_solution} from '../utils/text'
+import total from '../utils/total'
 
 export default {
   props: ['answer', 'solution'],
@@ -54,33 +48,35 @@ export default {
   },
   computed: {
     correct: function() {
-      return this.proposed.toLowerCase() == this.solution.toLowerCase()
+      return this.score == 1
+    },
+    solution_array: function() {
+      return normalize_solution(this.solution).split('')
+    },
+    proposed_array: function() {
+      return normalize_solution(this.proposed).split('')
     },
     score_unordered_result: function() {
       //counting number of characters
-      const s = group_by(this.solution.split(''), a => a, group => group.length)
-      const p = group_by(this.proposed.split(''), a => a, group => group.length)
+      const s = group_by(this.solution_array, a => a, group => group.length)
+      const p = group_by(this.proposed_array, a => a, group => group.length)
 
-      const maximum = values(s).reduce((a, b) => a+b)
+      const maximum = total(values(s))
       const diff    = map((v, k) => Math.max(v - (p[k] || 0), 0), s)
-      const value   = values(diff).reduce((a, b) => a+b)
+      const value   = total(values(diff))
 
       return 1 - value / maximum
     },
     score_orderer_result: function() {
-
-      const s = this.solution.split('')
-      const p = this.proposed.split('')
-
-      const score = map(
+      const score = total(map(
         items => 0 + (first(items) == last(items)),
-        zip(s, p)
-      ).reduce((a, b) => a+b, 0)
+        zip(this.solution_array, this.proposed_array)
+      ))
 
-      return score / s.length
+      return score / length(this.solution_array)
     },
     score_letter_number: function() {
-      return 1 / (1 + Math.abs(this.solution.length - this.proposed.length))
+      return 1 / (1 + Math.abs(length(this.solution_array) - length(this.proposed_array)))
     },
     score: function() {
       return this.score_unordered_result * 0.4 + this.score_orderer_result * 0.4 + this.score_letter_number * 0.2

@@ -22,11 +22,6 @@
         </div>
       </div>
     </div>
-
-      <span v-if='is_emoji_visible(emoji)' v-for='emoji, name in emoji'>
-        {{ emoji }}
-      </span>
-
     <br/>
     <div class="field">
       <label class="label">Share the URL!</label>
@@ -53,8 +48,11 @@
 
 <script>
 
-import {answer_url}   from '../utils/urls'
-import emoji          from '../utils/emoji'
+import {answer_url}    from '../utils/urls'
+import {remove_emojis} from '../utils/text'
+
+
+//import emoji          from '../utils/emoji'
 import copy           from 'copy-to-clipboard'
 import map            from 'rfuncs/functions/map'
 import length         from 'rfuncs/functions/length'
@@ -66,7 +64,7 @@ export default {
     return {
       solution: '',
       answer: '',
-      emoji: emoji.emoji
+      //emoji: emoji.emoji
     }
   },
   methods: {
@@ -76,9 +74,9 @@ export default {
     on_copy_click: function() {
       copy(this.absolute_url);
     },
-    is_emoji_visible: function(emoji) {
-      return this.search_results[emoji]
-    }
+    //is_emoji_visible: function(emoji) {
+    //  return this.search_results[emoji]
+    //}
   },
   computed: {
     url: function() {
@@ -90,7 +88,7 @@ export default {
       return url.href.slice(0, -1) + this.url
     },
     filtered: function() {
-      return  this.answer.replace(/^[\u0020-\u007e\u00a0-\u00ff]*$/g, "").trim();
+      return  remove_emojis(this.answer)
     },
     invalid_input: function() {
       return this.filtered !== this.answer
@@ -98,12 +96,12 @@ export default {
     invalid_url: function() {
       return ! this.answer || ! this.solution
     },
-    search_results: function() {
-      return emoji.search(this.solution)
-    },
-    suggestion: function() {
-      return map(d => d.emoji, values(this.search_results)).join('')
-    }
+    //search_results: function() {
+    //  return emoji.search(this.solution)
+    //},
+    //suggestion: function() {
+    //  return map(d => d.emoji, values(this.search_results)).join('')
+    //}
   },
   mounted(){
     this.$refs.solution.focus();
