@@ -4,6 +4,8 @@ import StartGame from '@/components/StartGame'
 import Answer from '@/components/Answer'
 import {loads}  from '../utils/encode'
 
+import {remove_text, normalize_solution} from '../utils/text'
+
 Vue.use(Router)
 
 export default new Router({
@@ -19,8 +21,8 @@ export default new Router({
       name: 'Answer',
       component: Answer,
       props: route => ({
-        answer: route.params.answer, 
-        solution: loads(route.params.solution)
+        answer: remove_text(route.params.answer), 
+        solution: normalize_solution(loads(route.params.solution))
       }),
     }
   ]
