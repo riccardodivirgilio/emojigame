@@ -36,7 +36,11 @@ export default {
 
 <style lang='sass'>
 
+$primary: #3273dc
 $body-background-color: #f9f9f9
+
+
+
 $progress-bar-background-color: white
 
 @import 'bulma/bulma.sass'
