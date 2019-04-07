@@ -32,8 +32,8 @@
       </div>
       <div class="emoji-controls">
         <div class="buttons has-addons is-fullwidth is-centered">
-          <a class="button is-small is-radiusless" :title='name' v-show='is_emoji_visible(emoji)' v-for='emoji, name in emojis' @click.prevent='on_click_emoji(emoji)'>
-            <span class="icon is-small">{{ emoji }}</span>
+          <a class="button is-radiusless" :title='name' v-show='is_emoji_visible(emoji)' v-for='emoji, name in emojis' @click.prevent='on_click_emoji(emoji)'>
+            <span class="icon">{{ emoji }}</span>
           </a>
         </div>
       </div>
