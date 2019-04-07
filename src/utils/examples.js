@@ -15,7 +15,9 @@ export const examples = {
     'A clockwork orange': '⏰🍊',
     'Flat earth': '➖🌎',
     'Guns and Roses': '🔫🌹',
-    'Fear and Loathing in Las Vegas': '😱🤪🌴🎰'
+    'Fear and Loathing in Las Vegas': '😱🤪🌴🎰',
+    'Four weddings and a funeral': '💒💒💒💒⚰',
+    'The Butterfly Effect': '🦋🎲',
 }
 
 export default examples
