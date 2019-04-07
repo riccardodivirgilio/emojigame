@@ -1,25 +1,24 @@
 <template>
   <form @submit.prevent>
     <div class="card-content">
-      <section class="hero has-text-centered">
-        <div class="hero-body">
-          <h1 class="title">
-            {{ answer }}
-          </h1>
-          <h2 class="subtitle">
-            Guess the answer.
-          </h2>
-          <progress class="progress" :value="score" max="1" :class="score_classes"></progress>
-          <h1 class="title">
-            <template v-if='correct'>👍</template>
-            <template v-else>
-              <template v-for='w in solution_words'>- </template>?
-            </template>
-          </h1>
-        </div>
+      <section class="has-text-centered">
+        <h1 class="title">
+          {{ answer }}
+        </h1>
+        <h2 class="subtitle">
+          Guess the answer.
+        </h2>
+        <h1 class="title">
+          <template v-if='correct'>👍</template>
+          <template v-else>
+            <template v-for='w in solution_words'>- </template>?
+          </template>
+        </h1>
       </section>
-      <div class="control">
-        <input class="input has-text-centered" ref='solution' :class="{'is-success': correct}" type="text" placeholder="Insert solution" v-model='proposed'>
+      <br/>
+      <div class="control control-progress">
+        <progress class="progress input-progress" :value="score" max="1" :class="score_classes"></progress>
+        <input class="input input-proposed has-text-centered" ref='solution' :class="{'is-success': correct}" type="text" placeholder="Insert solution" v-model='proposed'>
       </div>
       <br/>
       <Share :url='url'/>
@@ -104,7 +103,20 @@ export default {
 </script>
 
 <style scoped>
+
 .progress::-webkit-progress-value {
   transition: all 0.5s ease;
+}
+.control-progress {
+  position:relative;
+}
+.input-progress {
+  position: absolute;
+  border-radius: 4px;
+  border-color: transparent;
+  height: 36px;
+}
+.input-proposed {
+  background:transparent;
 }
 </style>

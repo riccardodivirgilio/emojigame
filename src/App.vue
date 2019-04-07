@@ -34,10 +34,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang='sass'>
 
-  .logo a {
-    color: black;
-    font-size:45px;
-  }
+$progress-bar-background-color: white
+
+@import 'bulma/bulma.sass'
+
+.logo a
+  color: black
+  font-size: 45px
+  
 </style>
