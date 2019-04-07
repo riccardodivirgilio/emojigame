@@ -91,8 +91,8 @@ export default {
     },
     score_classes: function() {
       return {
-          'is-danger':  this.score <= 0.40, 
-          'is-warning': this.score <= 0.99, 
+          'is-danger':  this.score <= 0.40,
+          'is-warning': this.score <= 0.99,
           'is-success': this.score <= 1
       }
     }

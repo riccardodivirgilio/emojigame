@@ -13,7 +13,7 @@
           <footer class="has-text-grey has-text-centered">
             <br/>
             <small>
-                Made with ❤️ in 🇮🇹 
+                Made with ❤️ in 🇮🇹
                 by <a href='https://github.com/riccardodivirgilio' target='_blank'>@riccardodivirgilio</a>
                 and <a href='https://github.com/andreacat' target='_blank'>@pinoli</a>.
             <br/>

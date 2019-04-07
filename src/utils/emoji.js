@@ -11,7 +11,7 @@ const idx = lunr(function () {
   this.field('name')
   scan(
     (emoji, name) => this.add({
-        'id':   name, 
+        'id':   name,
         'name': name.replace('_', ' ')
     }),
     emojis.emoji
@@ -34,6 +34,6 @@ function search(query) {
 }
 
 export default {
-    'search': search, 
+    'search': search,
     'emoji':  emojis.emoji
 }

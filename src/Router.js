@@ -16,12 +16,12 @@ export default new Router({
       name: 'StartGame',
       component: StartGame
     },
-    { 
-      path: '/:answer/:solution', 
+    {
+      path: '/:answer/:solution',
       name: 'Answer',
       component: Answer,
       props: route => ({
-        answer: remove_text(route.params.answer), 
+        answer: remove_text(route.params.answer),
         solution: normalize_solution(loads(route.params.solution)),
         proposed: '',
       }),

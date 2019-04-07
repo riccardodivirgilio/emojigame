@@ -99,7 +99,7 @@ export default {
   computed: {
     url: function() {
       return answer_url(
-        this.solution || this.solution_suggestion, 
+        this.solution || this.solution_suggestion,
         this.answer   || this.answer_suggestion,
       )
     },
