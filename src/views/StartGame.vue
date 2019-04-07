@@ -19,7 +19,7 @@
             <div class="control is-expanded">
               <input ref="solution" class="input has-text-centered" type="text" :placeholder="solution_suggestion" v-model='solution'>
             </div>
-            <div class="control">
+            <div class="control is-hidden-mobile">
               <button class="button is-static">
                 &rarr;
               </button>

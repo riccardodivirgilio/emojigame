@@ -1,6 +1,8 @@
 <template>
   <footer class="card-footer">
-    <router-link @click.native='on_random_click' :to='random_url' class="card-footer-item">Play random</router-link>
+    <router-link @click.native='on_random_click' :to='random_url' class="card-footer-item">
+      Play Random
+    </router-link>
     <slot></slot>
   </footer>
 </template>

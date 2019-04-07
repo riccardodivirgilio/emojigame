@@ -23,7 +23,11 @@
       <br/>
       <Share :url='url'/>
     </div>
-    <Controls></Controls>
+    <Controls>
+      <router-link to='/' class="card-footer-item">
+        Create New
+      </router-link>
+    </Controls>
   </form>
 </template>
 
