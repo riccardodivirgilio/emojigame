@@ -1,4 +1,7 @@
 
+// we want to use a cypher to prevent smart people from HN to find solutions using base64.
+// they need to be smarter and find out about this simple cypher and then run base64
+
 import json   from './json'
 import base64 from './base64'
 import cypher from './cypher'
