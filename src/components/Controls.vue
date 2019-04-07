@@ -10,14 +10,14 @@
 <script>
 
 import examples from '@/utils/examples'
-import random   from '@/utils/random'
 
-import keys     from 'rfuncs/functions/keys'
+import random_choice from 'rfuncs/functions/random_choice'
+import keys          from 'rfuncs/functions/keys'
 
 import {answer_url} from '@/utils/urls'
 
 function new_random_url() {
-    const choice = random.choice(keys(examples))
+    const choice = random_choice(keys(examples))
     return answer_url(choice, examples[choice])
 }
 

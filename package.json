@@ -19,7 +19,7 @@
     "emoji-name-map": "^1.2.8",
     "js-base64": "^2.5.1",
     "lunr": "^2.3.6",
-    "rfuncs": "^1.2.1",
+    "rfuncs": "^1.2.2",
     "universal-analytics": "^0.4.20",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"

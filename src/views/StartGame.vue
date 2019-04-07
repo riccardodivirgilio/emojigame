@@ -56,9 +56,9 @@ import Controls        from '@/components/Controls'
 import {remove_text, remove_emoji, normalize_solution} from '../utils/text'
 import {answer_url}    from '@/utils/urls'
 import emoji           from '@/utils/emoji'
-import random          from '@/utils/random'
 import examples        from '@/utils/examples'
 
+import random_choice   from 'rfuncs/functions/random_choice'
 import map             from 'rfuncs/functions/map'
 import length          from 'rfuncs/functions/length'
 import values          from 'rfuncs/functions/values'
@@ -118,8 +118,8 @@ export default {
     },
 
     solution_suggestion: function() {
-      return random.choice(['Scream', 'Guns and Roses', 'Twin peaks'])
-      return random.choice(keys(examples))
+      return random_choice(['Scream', 'Guns and Roses', 'Twin peaks'])
+      return random_choice(keys(examples))
     },
     answer_suggestion: function() {
 
