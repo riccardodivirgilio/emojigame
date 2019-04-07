@@ -145,7 +145,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .emoji-controls {
-  height: 138px;
+  height: 128px;
   overflow-y: scroll;
 }
 </style>
