@@ -33,9 +33,6 @@ function search(query) {
     )
 }
 
-
-
-
 export default {
     'search': search, 
     'emoji':  emojis.emoji

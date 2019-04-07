@@ -1,9 +1,6 @@
 
-export function dumps(data) {
-    return JSON.stringify(data)
-}
-export function loads(data) {
-    return JSON.parse(data)
-}
+
+export const dumps = (data) => JSON.stringify(data)
+export const loads = (data) => JSON.parse(data)
 
 export default {loads, dumps}

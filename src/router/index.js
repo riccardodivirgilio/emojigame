@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import StartGame from '@/components/StartGame'
 import Answer from '@/components/Answer'
-import {loads}  from '../utils/base64'
+import {loads}  from '../utils/encode'
 
 Vue.use(Router)
 
