@@ -3,6 +3,7 @@
     <div class="card-content">
       <section class="hero has-text-centered">
         <div class="hero-body">
+
           <h1 class="title">
             {{ answer }}
           </h1>
@@ -10,22 +11,21 @@
             Guess the answer.
           </h2>
           <progress class="progress" :value="score" max="1" :class="score_classes"></progress>
+
+          <h1 class="title">
+            <template v-if='correct'>👍</template>
+            <template v-else>
+              <template v-for='w in solution_words'>- </template>?
+            </template>
+          </h1>
+
         </div>
       </section>
       <div class="control">
         <input class="input has-text-centered" ref='solution' :class="{'is-success': correct}" type="text" placeholder="Insert solution" v-model='proposed'>
       </div>
       <br/>
-      <section class="hero has-text-centered" :class="{'is-success': correct}">
-        <div class="hero-body">
-          <h1 class="title title-correct" style="font-size:80px">
-            <template v-if='correct'>👍</template>
-            <template v-else>
-              <template v-for='w in solution_words'>- </template>?
-            </template>
-          </h1>
-      </div>
-      </section>
+
 
       <Share :url='url'/>
     </div>
