@@ -117,6 +117,7 @@ export default {
     },
 
     solution_suggestion: function() {
+      return random.choice(['Scream', 'Psyco', 'Twin peaks'])
       return random.choice(keys(examples))
     },
     answer_suggestion: function() {
